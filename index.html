@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joan's portfolio</title>
+    <link rel="stylesheet" href="assets/css/output.css" />
+  </head>
+  <body class="overflow-x-hidden">
+    <nav
+      class="nav hidden sm:block fixed left-0 inset-y-0 z-50"
+      id="desktop-menu"
+    >
+      <div class="mx-auto max-w-7xl h-screen px-2 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-1 h-screen items-center justify-center sm:items-stretch sm:justify-start"
+        >
+          <div class="hidden h-screen sm:ml-6 sm:block">
+            <div class="flex h-screen flex-col space-y-10 justify-center">
+              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+              <a
+                href="#header"
+                id="about-nav"
+                class="text-white text-opacity-70 hover:[text-shadow:0_0_30px_white] hover:text-opacity-100 hover:duration-300 hover:translate-x-4 duration-300 px-3 py-2 text-lg font-medium"
+                >About</a
+              >
+              <a
+                href="#projects"
+                id="projects-nav"
+                class="text-white text-opacity-70 hover:[text-shadow:0_0_20px_white] hover:text-opacity-100 hover:duration-300 hover:translate-x-4 duration-300 px-3 py-2 text-lg font-medium"
+                >Projects</a
+              >
+              <a
+                href="#achievements"
+                class="text-white text-opacity-70 hover:[text-shadow:0_0_20px_white] hover:text-opacity-100 hover:duration-300 hover:translate-x-4 duration-300 px-3 py-2 text-lg font-medium"
+                >Achievements</a
+              >
+              <a
+                href="#gallery"
+                id="gallery-nav"
+                class="text-white text-opacity-70 hover:[text-shadow:0_0_20px_white] hover:text-opacity-100 hover:duration-300 hover:translate-x-4 duration-300 px-3 py-2 text-lg font-medium"
+                >Gallery</a
+              >
+              <a
+                href="#contact"
+                id="contact-nav"
+                class="text-white text-opacity-70 hover:[text-shadow:0_0_20px_white] hover:text-opacity-100 hover:duration-300 hover:translate-x-4 duration-300 px-3 py-2 text-lg font-medium"
+                >Contact</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <nav
+      class="nav sm:hidden fixed w-screen bottom-0 shadow-[inset_0_-100px_100px_-50px_rgba(87,54,54,0.8)] z-50"
+      id="mobile-menu "
+    >
+      <img
+        class="absolute left-1/2 translate-y-[-50%] translate-x-[-50%] bottom-1/2 w-80"
+        src="assets/images/div-1.png"
+        alt=""
+      />
+
+      <div class="px-2 pb-3 pt-2 flex justify-around">
+        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+
+        <a href="#header" class="text-white block py-2 text-xs">About</a>
+        <a href="#projects" class="text-white block py-2 text-xs">Projects</a>
+        <a href="#achievements" class="text-white block py-2 text-xs"
+          >Achievements</a
+        >
+        <a href="#gallery" class="text-white block py-2 text-xs">Gallery</a>
+        <a href="#contact" class="text-white block py-2 text-xs">Contact</a>
+      </div>
+    </nav>
+
+    <section
+      id="header"
+      class="header h-screen flex justify-center items-center bg-[url('../images/header-bg.png')] bg-no-repeat bg-cover bg-center bg-fixed"
+    >
+      <div
+        class="w-52 sm:w-80 lg:w-96 p-8 animate-[float_4s_ease-in-out_infinite]"
+      >
+        <img
+          class="w-full h-full rounded-[50%]"
+          src="assets/images/formal.jpg"
+        />
+        <img
+          class="mirror w-full h-full absolute top-0 left-0"
+          src="assets/images/mirror-frame.png"
+        />
+      </div>
+    </section>
+
+    <section
+      id="about"
+      class="about h-screen flex flex-col sm:flex-row opacity-0 justify-center items-center text-white bg-fixed font-[heygirl]"
+    >
+      <div
+        class="about-text sm:w-1/3 w-full text-center flex flex-col sm:text-right md:gap-y-16 sm:gap-y-9 sm:h-3/4"
+      >
+        <h1
+          class="xl:text-5xl lg:text-4xl text-3xl xl:mr-[20%] md:mr-[30%] sm:mr-[30%] mb-4 sm:mb-0"
+        >
+          <span class="lg:text-lg text-sm block font-mono">NAME</span>
+          Ngan Joan You
+        </h1>
+        <h1
+          class="xl:text-5xl lg:text-4xl text-3xl xl:mr-[40%] lg:mr-[55%] md:mr-[55%] sm:mr-[60%]"
+        >
+          <span class="lg:text-lg text-sm block font-mono">CALL ME</span> Joan
+        </h1>
+      </div>
+      <div
+        class="about-text2 sm:w-1/3 w-full md:text-left text-center flex flex-row items-end sm:items-start flex-wrap sm:flex-nowrap sm:flex-col justify-end sm:gap-y-16"
+      >
+        <h3
+          class="xl:text-5xl lg:text-4xl text-3xl xl:ml-[45%] lg:ml-[60%] md:ml-[65%] sm:ml-[75%] w-full sm:w-auto translate-y-16 sm:translate-y-0"
+        >
+          <span class="lg:text-lg text-sm block font-mono">BIRTHPLACE</span
+          >Malacca
+        </h3>
+        <h1
+          class="xl:text-5xl lg:text-4xl text-3xl xl:ml-[35%] lg:ml-[50%] md:ml-[50%] sm:ml-[65%] w-1/2 inline -translate-y-5 sm:translate-y-0"
+        >
+          16<span class="lg:text-lg text-sm font-mono"> YEARS OLD</span>
+        </h1>
+        <h4
+          class="xl:text-5xl lg:text-4xl text-3xl xl:ml-[20%] md:ml-[30%] sm:ml-[35%] w-1/2 inline -translate-y-5 sm:translate-y-0"
+        >
+          <span class="lg:text-lg text-sm block font-mono">BIRTHDAY</span>1st
+          October
+        </h4>
+      </div>
+    </section>
+
+    <div class="absolute z-10 transform -translate-y-[50%]">
+      <img src="assets/images/div-2.png" class="w-screen" alt="" />
+    </div>
+    <section
+      id="projects"
+      class="projects relative h-screen w-full bg-[url('../images/bg-1.png')] bg-no-repeat bg-cover bg-center bg-fixed flex flex-col align-middle text-center justify-center overflow-hidden scrollbar-hide"
+    >
+      <h1 class="text-[#fff3cd] text-7xl font-[heygirl]">Projects</h1>
+
+      <!-- Contents -->
+      <div
+        class="container-snap relative w-full flex gap-6 snap-mandatory snap-x overflow-x-auto overflow-y-visible py-8 sm:py-20 sm:pb-28 p-10 scrollbar-hide"
+      >
+        <!-- Dummy element to ensure proper spacing -->
+        <div class="dummystart shrink-0"></div>
+        <div
+          class="relative card snap-center flex-shrink-0 w-[222px] md:w-[493px] sm:w-[370px] group p-0 flex flex-col justify-center items-center gap-5"
+        >
+          <div
+            class="relative h-40 md:h-80 sm:h-60 w-full flex justify-center items-center group-hover:-translate-y-14 duration-1000 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] overflow-hidden"
+          >
+            <img
+              class="h-[90%] md:h-[95%] w-[97%]"
+              src="assets/images/project-cashier.png"
+              alt=""
+            />
+            <img
+              class="h-full w-full shadow-xl absolute top-0"
+              src="assets/images/frame.png"
+            />
+          </div>
+          <div
+            class="w-[90%] relative sm:absolute sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 p-4 flex justify-center items-center bg-[#DDBD95] h-52 md:h-0 md:opacity-0 md:group-hover:h-48 md:group-hover:opacity-100 duration-1000 delay-200 ease-[cubic-bezier(0.175,0.885,0.32,1.275)]"
+          >
+            <div
+              class="w-[105%] h-full md:h-0 md:opacity-0 border-2 absolute top-3 -inset-x-[2.5%] md:group-hover:h-48 md:group-hover:opacity-100 duration-1000 delay-300 ease-in-out"
+            ></div>
+            <p class="text-xs sm:text-sm md:text-base">
+              A highly secure cashier system preventing unauthorised access.
+              Live footage is recorded via security camera and collected in a
+              database. We have management control over who can access the
+              cashiers and cybersecurity measures to protect footage from being
+              accessed or corrupted by hackers.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="relative card snap-center flex-shrink-0 w-[222px] md:w-[493px] sm:w-[370px] group p-0 flex flex-col justify-center items-center gap-5"
+        >
+          <div
+            class="relative h-40 md:h-80 sm:h-60 w-full flex justify-center items-center group-hover:-translate-y-14 duration-1000 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] overflow-hidden"
+          >
+            <img
+              class="h-[90%] md:h-[95%] w-[97%]"
+              src="assets/images/project-undeaf.png"
+              alt=""
+            />
+            <img
+              class="h-full w-full shadow-xl absolute top-0"
+              src="assets/images/frame.png"
+            />
+          </div>
+          <div
+            class="w-[90%] relative sm:absolute sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 p-4 flex justify-center items-center bg-[#DDBD95] h-52 md:h-0 md:opacity-0 md:group-hover:h-48 md:group-hover:opacity-100 duration-1000 delay-200 ease-[cubic-bezier(0.175,0.885,0.32,1.275)]"
+          >
+            <div
+              class="w-[105%] h-full md:h-0 md:opacity-0 border-2 absolute top-3 -inset-x-[2.5%] md:group-hover:h-48 md:group-hover:opacity-100 duration-1000 delay-300 ease-in-out"
+            ></div>
+            <p class="text-xs sm:text-sm md:text-base">
+              Un-Deaf is a deaf-friendly fire alarm that uses LED and vibration
+              device to alert users with hearing impairments. It uses
+              temperature, humidity and smoke sensors to accurately identify
+              when there's a fire.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="relative card snap-center flex-shrink-0 w-[222px] md:w-[493px] sm:w-[370px] group p-0 flex flex-col justify-center items-center gap-5"
+        >
+          <div
+            class="relative h-40 md:h-80 sm:h-60 w-full flex justify-center items-center group-hover:-translate-y-14 duration-1000 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] overflow-hidden"
+          >
+            <img
+              class="h-[90%] md:h-[95%] w-[97%]"
+              src="assets/images/project-app.png"
+              alt=""
+            />
+            <img
+              class="h-full w-full shadow-xl absolute top-0"
+              src="assets/images/frame.png"
+            />
+          </div>
+          <div
+            class="w-[90%] relative sm:absolute sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 p-4 flex justify-center items-center bg-[#DDBD95] h-52 md:h-0 md:opacity-0 md:group-hover:h-48 md:group-hover:opacity-100 duration-1000 delay-200 ease-[cubic-bezier(0.175,0.885,0.32,1.275)]"
+          >
+            <div
+              class="w-[105%] h-full md:h-0 md:opacity-0 border-2 absolute top-3 -inset-x-[2.5%] md:group-hover:h-48 md:group-hover:opacity-100 duration-1000 delay-300 ease-in-out"
+            ></div>
+            <p class="text-xs sm:text-sm md:text-base">
+              An application that comes with Un-Deaf Alarm to ease users' job in
+              keeping their house safe and allows users to monitor their
+              sensors, whether they're in the house or not.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="relative card snap-center flex-shrink-0 w-[222px] md:w-[493px] sm:w-[370px] group p-0 flex flex-col justify-center items-center gap-5"
+        >
+          <div
+            class="relative h-40 md:h-80 sm:h-60 w-full flex justify-center items-center group-hover:-translate-y-14 duration-1000 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] overflow-hidden"
+          >
+            <img
+              class="h-[90%] md:h-[95%] w-[97%]"
+              src="assets/images/project-kc.png"
+              alt=""
+            />
+            <img
+              class="h-full w-full shadow-xl absolute top-0"
+              src="assets/images/frame.png"
+            />
+          </div>
+          <div
+            class="w-[90%] relative sm:absolute sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 p-4 flex justify-center items-center bg-[#DDBD95] h-52 md:h-0 md:opacity-0 md:group-hover:h-48 md:group-hover:opacity-100 duration-1000 delay-200 ease-[cubic-bezier(0.175,0.885,0.32,1.275)]"
+          >
+            <div
+              class="w-[105%] h-full md:h-0 md:opacity-0 border-2 absolute top-3 -inset-x-[2.5%] md:group-hover:h-48 md:group-hover:opacity-100 duration-1000 delay-300 ease-in-out"
+            ></div>
+            <p class="text-xs sm:text-sm md:text-base">
+              A scratch game I made in foundation 1. The game is about a baker
+              going on a journey to find their stolen ingredients. There are
+              minigames along the way to help her get the ingredients back.
+            </p>
+          </div>
+        </div>
+        <div class="dummyend shrink-0"></div>
+      </div>
+      <script>
+        const containerWidth =
+          document.querySelector(".container-snap").offsetWidth;
+        const cardWidth = document.querySelector(".card").offsetWidth;
+        const dummyheight = containerWidth - cardWidth - 16;
+        document.querySelector(".dummystart").style.width = `${dummyheight}px`;
+        document.querySelector(".dummyend").style.width = `${dummyheight}px`;
+      </script>
+      <img
+        src="assets/images/cloud-1.png"
+        class="w-1/2 md:w-1/3 absolute left-0 bottom-0 animate-[float_4s_ease-in-out_infinite]"
+        alt=""
+      />
+      <img
+        src="assets/images/cloud-2.png"
+        class="w-1/3 md:w-1/4 absolute right-0 bottom-10 md:bottom-0 animate-[float_4s_ease-in-out_1s_infinite]"
+        alt=""
+      />
+    </section>
+
+    <section
+      id="achievements"
+      class="achievements bg-[url('../images/bg-1.png')] bg-no-repeat bg-cover bg-fixed bg-center p-24 px-[15%] flex flex-col items-center gap-y-20"
+    >
+      <h1 class="text-[#fff3cd] lg:text-7xl text-6xl font-[heygirl]">
+        Achievements
+      </h1>
+
+      <div class="container flex flex-col lg:gap-60 gap-20">
+        <div class="row w-100 flex justify-end">
+          <div class="ach md:w-1/2 relative">
+            <div
+              class="rounded-3xl overflow-hidden border-double md:border-8 border-white"
+            >
+              <img
+                class="ach-img brightness-90 scale-110"
+                src="assets/images/pcep-cert.jpg"
+                alt=""
+              />
+            </div>
+
+            <h1
+              class="ach-text font-[abington] xl:text-5xl lg:text-4xl md:text-3xl md:absolute text-[#fff3cd] text-center md:text-right xl:left-[-100%] md:-left-3/4 top-[80%]"
+            >
+              PCEP – Certified Entry-Level <br />Python Programmer
+            </h1>
+          </div>
+        </div>
+
+        <div class="row w-100 flex justify-start">
+          <div class="ach md:w-1/2 relative">
+            <div
+              class="rounded-3xl overflow-hidden border-double md:border-8 border-white"
+            >
+              <img
+                class="ach-img aspect-[4/3] object-cover brightness-90 scale-110"
+                src="assets/images/yic.jpeg"
+                alt=""
+              />
+            </div>
+
+            <h1
+              class="ach-text font-[abington] xl:text-5xl lg:text-4xl md:text-3xl md:absolute text-center md:text-left text-[#fff3cd] xl:right-[-100%] md:-right-3/4 top-[80%]"
+            >
+              Gold Medal in <br />Young Innovators Challenge
+            </h1>
+          </div>
+        </div>
+
+        <div class="row w-100 flex justify-end">
+          <div class="ach md:w-1/2 relative">
+            <div
+              class="rounded-3xl overflow-hidden border-double md:border-8 border-white"
+            >
+              <img
+                class="ach-img brightness-75 scale-110"
+                src="assets/images/codewar.jpg"
+                alt=""
+              />
+            </div>
+
+            <h1
+              class="ach-text font-[abington] xl:text-5xl lg:text-4xl md:text-3xl md:absolute text-[#fff3cd] text-center md:text-right xl:left-[-100%] md:-left-3/4 top-[80%]"
+            >
+              Silver Award in <br />National CodeWar Competition
+            </h1>
+          </div>
+        </div>
+
+        <div class="row w-100 flex justify-start">
+          <div class="ach md:w-1/2 relative">
+            <div
+              class="rounded-3xl overflow-hidden border-double md:border-8 border-white"
+            >
+              <img
+                class="ach-img aspect-[4/3] object-cover brightness-90 scale-110"
+                src="assets/images/nrc.jpg"
+                alt=""
+              />
+            </div>
+
+            <h1
+              class="ach-text font-[abington] xl:text-5xl lg:text-4xl md:text-3xl md:absolute text-center md:text-left text-[#fff3cd] xl:right-[-100%] md:-right-3/4 top-[80%]"
+            >
+              5th Place in <br />National Robotics Competition
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="gallery"
+      class="gallery grid place-content-center bg-[url('../images/bg-1.png')] h-screen bg-cover bg-no-repeat bg-center bg-fixed relative"
+    >
+      <h1
+        class="text-[#fff3cd] lg:text-7xl text-6xl font-[heygirl] absolute left-1/2 top-1/4 -translate-x-1/2 duration-500"
+        id="gallery-heading"
+      >
+        Gallery
+      </h1>
+      <div class="gallerycontainer grid gap-[5px] relative">
+        <label
+          for="gallery-checkbox"
+          class="absolute z-10 cursor-pointer"
+          id="label"
+        >
+          <img
+            src="assets/images/globe.png"
+            class="globe duration-[1.5s]"
+            alt="Checkbox Image"
+          />
+          <img
+            src="assets/images/globe-stand.png"
+            class="globestand -translate-y-[calc(var(--s)/4.5)] left-[5%] relative w-[calc(var(--s)-10%)]"
+            alt=""
+          />
+        </label>
+
+        <input
+          id="gallery-checkbox"
+          type="checkbox"
+          class="hidden absolute z-10"
+          onclick="toggleImageRotation()"
+        />
+        <img
+          src="assets/images/1.jpg"
+          class="image1 cursor-pointer"
+          onclick="openModal(this.src)"
+        />
+        <img
+          src="assets/images/2.jpg"
+          class="image2 cursor-pointer"
+          onclick="openModal(this.src)"
+        />
+        <img
+          src="assets/images/3.jpg"
+          class="image3 cursor-pointer"
+          onclick="openModal(this.src)"
+        />
+        <img
+          src="assets/images/4.jpg"
+          class="image4 cursor-pointer"
+          onclick="openModal(this.src)"
+        />
+        <img
+          src="assets/images/5.jpg"
+          class="image5 cursor-pointer"
+          onclick="openModal(this.src)"
+        />
+        <img
+          src="assets/images/6.jpg"
+          class="image6 cursor-pointer"
+          onclick="openModal(this.src)"
+        />
+        <img
+          src="assets/images/7.jpg"
+          class="image7 cursor-pointer"
+          onclick="openModal(this.src)"
+        />
+        <img
+          src="assets/images/8.jpg"
+          class="image8 cursor-pointer"
+          onclick="openModal(this.src)"
+        />
+      </div>
+      <div
+        id="modal"
+        class="modal fixed z-30 w-screen h-screen top-0 left-0 bg-[#00000060] hidden justify-center items-center"
+      >
+        <span class="close">&times;</span>
+        <img class="modal-content md:w-1/4 w-5/6" id="modal-image" />
+      </div>
+    </section>
+    <section
+      id="contact"
+      class="contact bg-[url('../images/bg-1.png')] bg-cover bg-center bg-no-repeat h-screen bg-fixed flex justify-center flex-col lg:flex-row items-center font-[writing] relative"
+    >
+      <div class="effect solanio flex">
+        <div class="buttons space-y-5 flex flex-row lg:flex-col items-end mb-5">
+          <a
+            href="https://www.facebook.com/ngan.joanyou"
+            class="fb lg:w-14 w-12 aspect-1 flex items-center justify-center rounded-full mr-4 text-xl lg:text-2xl overflow-hidden relative border-2 border-solid"
+            title="Join us on Facebook"
+            ><i class="fa fa-facebook text-white" aria-hidden="true"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/joanyngan/"
+            class="insta lg:w-14 w-12 aspect-1 flex items-center justify-center rounded-full mr-4 text-xl lg:text-2xl overflow-hidden relative border-2 border-solid"
+            title="Join us on Instagram"
+            ><i class="fa fa-instagram text-white" aria-hidden="true"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/joanyou/"
+            class="in lg:w-14 w-12 aspect-1 flex items-center justify-center rounded-full mr-4 text-xl lg:text-2xl overflow-hidden relative border-2 border-solid"
+            title="Join us on Linked In"
+            ><i class="fa fa-linkedin text-white" aria-hidden="true"></i
+          ></a>
+          <a
+            href="https://web.telegram.org/k/#@JoanThePengkee"
+            class="tl lg:w-14 w-12 aspect-1 flex items-center justify-center rounded-full mr-4 text-xl lg:text-2xl overflow-hidden relative border-2 border-solid"
+            title="Join us on Telegram"
+            ><i class="fa-brands fa-telegram text-white"></i
+          ></a>
+          <a
+            href="https://wa.me/60139949232"
+            class="ws lg:w-14 w-12 aspect-1 flex items-center justify-center rounded-full lg:mr-4 text-xl lg:text-2xl overflow-hidden relative border-2 border-solid"
+            title="Join us on WhatsApp"
+            ><i class="fa-brands fa-whatsapp text-white"></i>
+          </a>
+        </div>
+      </div>
+
+      <form
+        action="mailto:nganjoanyou@gmail.com"
+        method="post"
+        enctype="text/plain"
+        class="bg-[url('../images/scroll.png')] bg-cover bg-center bg-no-repeat tilt aspect-2 lg:w-[500px] lg:h-[590px] md:w-[400px] md:h-[472px] w-[300px] h-[354px] lg:p-20 md:p-14 p-10 lg:pe-32 md:pe-28 pe-20"
+      >
+        <h1 class="skew-y-3 lg:text-2xl md:text-xl">Dear Joan,</h1>
+        <textarea
+          cols="5"
+          placeholder="Write message here"
+          class="w-full skew-y-3 skew-x-3 bg-transparent outline-none border-0 border-b-2 border-[#C89255] md:max-h-[250px] max-h-[135px]"
+        ></textarea>
+        <div class="text-right mt-2">
+          <h1 class="text-right skew-y-3 lg:text-xl md:text-lg">From,</h1>
+          <input
+            type="text"
+            placeholder="Name"
+            class="bg-transparent outline-none border-0 border-b-2 border-[#C89255] text-right w-2/5 p-0 md:p-2 skew-y-3"
+          />
+        </div>
+        <input
+          type="submit"
+          class="absolute lg:bottom-12 md:bottom-9 bottom-5 cursor-pointer text-xl left-1/3"
+        />
+      </form>
+      <img
+        src="assets/images/ink.png"
+        class="absolute left-[55%] md:left-[60%] bottom-10 animate-[float_4s_ease-in-out_infinite] md:w-auto w-[45%]"
+        alt=""
+      />
+    </section>
+    <!-- scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/235c709891.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function toggleImageRotation() {
+        var label = document.getElementById("label");
+        label.classList.toggle("rotate");
+      }
+
+      const checkbox = document.getElementById("gallery-checkbox");
+      const galleryHeading = document.getElementById("gallery-heading");
+
+      document.addEventListener("DOMContentLoaded", function () {
+        function handleCheckboxVisibility(entries) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              galleryHeading.style.opacity = 0;
+              checkbox.checked = true;
+            }
+          });
+        }
+
+        const observer = new IntersectionObserver(handleCheckboxVisibility, {
+          threshold: 0.5,
+        });
+
+        observer.observe(document.getElementById("gallery"));
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        function toggleGalleryHeadingVisibility() {
+          setTimeout(() => {
+            galleryHeading.style.opacity = checkbox.checked ? 0 : 1;
+          }, 500);
+        }
+
+        checkbox.addEventListener("change", toggleGalleryHeadingVisibility);
+        toggleGalleryHeadingVisibility();
+      });
+    </script>
+    <script>
+      function adjustHeight() {
+        const mirrorHeight =
+          1.1 * document.querySelector(".mirror").offsetHeight;
+        document.querySelector(
+          ".about-text"
+        ).style.height = `${mirrorHeight}px`;
+        document.querySelector(
+          ".about-text2"
+        ).style.height = `${mirrorHeight}px`;
+      }
+
+      adjustHeight();
+
+      window.addEventListener("resize", () => {
+        adjustHeight();
+      });
+
+      // Get all the section elements and menu links
+      const sections = document.querySelectorAll("section");
+      const menuLinks = document.querySelectorAll(".nav a");
+
+      function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <=
+            (window.innerWidth || document.documentElement.clientWidth)
+        );
+      }
+
+      // Function to set opacity for menu links based on current section
+      function setMenuOpacity() {
+        sections.forEach((section, index) => {
+          if (isInViewport(section)) {
+            menuLinks.forEach((link) => {
+              if (link.getAttribute("href") === `#${section.id}`) {
+                link.style.opacity = 1;
+                link.style.color = "white";
+                link.style.textShadow = "0 0 20px white";
+              } else {
+                link.style.opacity = 0.7;
+                link.style.color = "";
+                link.style.textShadow = "none";
+              }
+            });
+          }
+        });
+      }
+      window.addEventListener("scroll", setMenuOpacity);
+    </script>
+    <script>
+      // use a script tag or an external JS file
+      document.addEventListener("DOMContentLoaded", (event) => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to("#about", {
+          scrollTrigger: {
+            trigger: "#about", // start animation when ".box" enters the viewport
+            toggleActions: "restart reset reverse pause",
+            start: "center center",
+            end: "center top",
+            toggleActions: "restart pause reverse reset",
+            pin: true,
+            scrub: true,
+            // markers: true,
+          },
+          opacity: 1,
+        });
+        const tl = gsap.timeline();
+        tl.from("#about", { yPercent: 100 });
+        ScrollTrigger.create({
+          animation: tl,
+          // markers: true,
+          trigger: ".header",
+          start: "top top",
+          end: () =>
+            "+=" + 1.5 * document.querySelector(".header").offsetHeight,
+          pin: true,
+          pinSpacing: false,
+          anticipatePin: 1,
+          snap: 1,
+        });
+
+        gsap.utils.toArray(".ach").forEach((ach, i) => {
+          const achText = ach.querySelector(".ach-text");
+          const achImg = ach.querySelector(".ach-img");
+          gsap.to(achText, {
+            scrollTrigger: {
+              trigger: ach, // start animation when ".box" enters the viewport
+              toggleActions: "restart reset reverse pause",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+              // markers: true,
+            },
+            top: "20%",
+          });
+          gsap.to(achImg, {
+            scrollTrigger: {
+              trigger: ach, // start animation when ".box" enters the viewport
+              toggleActions: "restart reset reverse pause",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+              // markers: true,
+            },
+            scale: 1,
+          });
+        });
+      });
+
+      var modal = document.getElementById("modal");
+
+      var img = document.getElementById("modal-image");
+
+      var span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks on an image, open the modal
+      function openModal(imageSrc) {
+        modal.style.display = "flex";
+        img.src = imageSrc;
+      }
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"
+      integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="text/javascript">
+      VanillaTilt.init(document.querySelectorAll(".tilt"), {
+        max: 12,
+        speed: 400,
+      });
+    </script>
+  </body>
+</html>
