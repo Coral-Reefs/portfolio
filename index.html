@@ -2702,12 +2702,25 @@ dialog.keepsake-dialog {
 
 /* LED alarm: sized against the illustration so it always fits its box */
 .theatre-un-deaf .project-summary {
+  position: absolute;
+  z-index: 7;
+  inset: 12% auto auto 3.5%;
+  width: min(27cqw, 218px);
   margin: 0;
-  padding: clamp(12px, 2vw, 18px) 3.4%;
-  border-block: 1px solid #9d79524d;
-  color: #4c3540;
-  background: #fbf0da;
-  font: 500 clamp(14px, 1.55vw, 17px)/1.55 var(--sans);
+  padding: clamp(7px, 1.3cqw, 12px);
+  border: 1px solid #ad825a;
+  border-radius: 5px;
+  background: linear-gradient(145deg, #fff6e2, #f4e0c2);
+  color: #432f36;
+  box-shadow: 0 4px 12px #180c284a;
+  font: 600 clamp(12px, 1.48cqw, 15px)/1.4 var(--sans);
+}
+@media (max-width: 700px) {
+  .theatre-un-deaf .project-summary {
+    inset-block-start: 6%;
+    width: min(46cqw, 190px);
+    font-size: clamp(11px, 2.8cqw, 13px);
+  }
 }
 .theatre-un-deaf .plate-caption .paper-actions {
   justify-content: flex-start;
@@ -3936,7 +3949,8 @@ function chapterMarkup(i){
     objects=projectVillage();
     actions=control('data-library="projects"','Project index · '+portfolioEntries.projects.length);
   }else if(i===3){
-    objects='<span class="window-beam" aria-hidden="true"></span><span class="signal-note">≋ &nbsp; Vibration</span><span class="sensor-note">Sensor view</span>';
+    objects='<p class="project-summary">A fire alarm for deaf and hard-of-hearing people. Flashing lights and vibration warn of danger, and the app shows live sensor readings.</p>'+
+      '<span class="window-beam" aria-hidden="true"></span><span class="signal-note">≋ &nbsp; Vibration</span><span class="sensor-note">Sensor view</span>';
     actions='<button class="pull-tab" data-alert aria-pressed="'+alarm+'">'+(alarm?'Reset the alert':'Pull to try the alert')+'</button>'+caseButton('prototype','Prototype')+caseButton('app','App screens')+caseButton('un-deaf','Project details');
   }else if(i===4){
     actions=control('data-workbench="skills"','Technical skills')+control('data-workbench="experience"','Work experience');
@@ -3950,11 +3964,8 @@ function chapterMarkup(i){
     actions=control('data-letter','Write a letter')+'<a class="paper-action" href="mailto:nganjoanyou@gmail.com">Email Joan</a><a class="paper-action" href="https://www.linkedin.com/in/joanyou/" target="_blank" rel="noopener">LinkedIn ↗</a>';
   }
   const [x,y]=perches[i];
-  const summary = i === 3
-    ? '<p class="project-summary">Un-Deaf is a fire alarm for people who are deaf or hard of hearing. It detects signs of fire and alerts users with flashing lights and vibrations. A companion app shows live sensor readings, even when users are away from home.</p>'
-    : '';
   const caption = i === 3 ? '' : '<p>' + notes[i] + '</p>';
-  return '<article class="theatre theatre-'+key+(i===3&&alarm?' alerted':'')+'"><header class="plate-title"><span>Chapter '+numbers[i]+'</span><h2 id="chapterTitle" tabindex="-1">'+folioTitles[i]+'</h2></header>'+summary+'<div class="paper-world"><div class="illustration">'+paperScene(i)+objects+'<i class="perch" aria-hidden="true" style="left:'+x+'%;top:'+y+'%"></i></div></div><footer class="plate-caption">'+caption+'<div class="paper-actions">'+actions+'</div></footer></article>';
+  return '<article class="theatre theatre-'+key+(i===3&&alarm?' alerted':'')+'"><header class="plate-title"><span>Chapter '+numbers[i]+'</span><h2 id="chapterTitle" tabindex="-1">'+folioTitles[i]+'</h2></header><div class="paper-world"><div class="illustration">'+paperScene(i)+objects+'<i class="perch" aria-hidden="true" style="left:'+x+'%;top:'+y+'%"></i></div></div><footer class="plate-caption">'+caption+'<div class="paper-actions">'+actions+'</div></footer></article>';
 }
 function projectVillage() {
   const projects = portfolioEntries.projects.map((project, index) =>
