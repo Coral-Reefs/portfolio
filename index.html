@@ -2032,63 +2032,6 @@ dialog[open] {
 @media(max-width:700px){.cover-stage{min-height:max(540px,calc(100svh - 64px));padding:70px 10px 110px}.cover-art{width:auto;max-width:62%;gap:0}.binding .book-object{height:clamp(225px,41svh,430px);max-width:51vw}.binding .silk-tab{top:12%;left:90%;font-size:12px;padding:8px 13px 8px 6px;gap:2px}.silk-tab span{font-size:13px}.lift-label{font-size:17px;padding:7px 14px;gap:9px}.relic img{max-height:76px}.relic span{font-size:14px}.compass{left:17%;top:79%;width:73px}.vial{left:13%;top:23%;width:45px}.letter{left:82%;top:78%;width:80px}.reader-bar{min-height:64px}.reader{padding-top:40px}#readerBinding{right:4px;top:-24px}#readerBinding .silk-tab{font-size:12px;padding:6px 15px 6px 10px}}
 @media(prefers-reduced-motion:reduce){.sky:before,.relic img,.silk-tab{transition:none}}
 
-/* Raised paper keepsakes on the portrait spread. */
-.keepsake {
-  position: absolute;
-  z-index: 2;
-  left: var(--left);
-  top: var(--top);
-  transform: translate(-50%, -50%);
-  min-width: 44px;
-  min-height: 44px;
-  padding: 0;
-  display: grid;
-  justify-items: center;
-  align-content: center;
-  border: 0;
-  background: transparent;
-  color: #422e3c;
-}
-.keepsake-phone { --left: 20%; --top: 32%; --tilt: -11deg; --delay: -.7s; }
-.keepsake-library { --left: 25%; --top: 76%; --tilt: -6deg; --delay: -1.9s; }
-.keepsake-award { --left: 77%; --top: 47%; --tilt: 9deg; --delay: -1.3s; }
-.keepsake-paper {
-  display: block;
-  rotate: var(--tilt);
-  filter: drop-shadow(2px 5px 3px #36233566);
-}
-.keepsake-paper img { display: block; width: auto; height: clamp(40px, 7vw, 89px); }
-.keepsake-library img {
-  height: clamp(33px, 5.6vw, 69px);
-}
-.keepsake-label {
-  position: relative;
-  margin-top: 4px;
-  padding: 3px 9px 4px;
-  border: 1px solid #b29771;
-  box-shadow: 1px 2px 0 #72583b44;
-  background: #fff1d8;
-  font: italic 600 clamp(12px, 1.5vw, 19px)/1.1 var(--serif);
-  white-space: nowrap;
-}
-.keepsake:hover .keepsake-label, .keepsake:focus-visible .keepsake-label {
-  color: #fff2d9;
-  background: #56334f;
-}
-.keepsake:focus-visible { outline: 2px solid #58374e; outline-offset: 4px; border-radius: 3px; }
-@media (prefers-reduced-motion: no-preference) {
-  .keepsake-paper { animation: keepsake-drift 3.6s ease-in-out var(--delay) 2; }
-  .keepsake:is(:hover, :focus-visible) .keepsake-paper { animation-play-state: paused; }
-  @keyframes keepsake-drift {
-    0%, 100% { translate: 0 0; }
-    50% { translate: 0 -4px; }
-  }
-}
-@media (max-width: 500px) {
-  .keepsake-library { --left: 22%; --top: 78%; }
-  .keepsake-label { margin-top: 1px; padding: 2px 5px; }
-}
-
 /* The book sits in a pool of light on the observatory desk. */
 .binding .book-object { height:clamp(350px,70svh,740px); filter:drop-shadow(9px 18px 12px #0b0816bd); }
 .binding .book-object img { transform:rotate(-2deg); }
@@ -2151,11 +2094,6 @@ dialog[open] {
 .mirror-piece { --x:34.4%;--y:6%;--w:31.2%;--h:85%;z-index:4; }
 .mirror-piece .paper-face { width:auto;max-width:100%;aspect-ratio:311/476;margin:auto; }
 .mirror-piece .mirror-photo { position:absolute;left:52.1%;top:50.4%;width:74.3%;height:57.7%;object-fit:cover;object-position:50% 47%;transform:translate(-50%,-50%) rotate(6deg);border-radius:50%; }
-.keepsake { z-index:7; }
-.keepsake-phone { --left:21%;--top:34%; }
-.keepsake-library { --left:23%;--top:73%; }
-.keepsake-award { --left:77%;--top:49%; }
-.keepsake-label { border-radius:1px; }
 @keyframes drift-cloud {
   0%,100% { transform:translate(-.65cqw,.4cqw) rotate(-.6deg); }
   50% { transform:translate(.65cqw,-.55cqw) rotate(.6deg); }
@@ -2202,7 +2140,6 @@ dialog[open] {
   .binding .silk-tab{left:86%;top:18%;}
   .compass{left:13%;top:71%;width:52px;}.vial{left:86%;top:35%;width:36px;}.letter{left:84%;top:77%;width:65px;}
   .relic span {font-size:12px;padding:2px 4px;}
-  .keepsake-library {--left:22%;--top:72%;}
   .reader-bar:has(#pauseClouds:not([hidden])){flex-wrap:wrap;row-gap:4px;}
   .reader-bar:has(#pauseClouds:not([hidden])) nav {position:static;transform:none;order:3;width:100%;}
   #pauseClouds {font-size:11px;}.sound-group{gap:9px;}
@@ -2620,12 +2557,25 @@ dialog.keepsake-dialog {
 .spot-card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:3px;margin-bottom:8px;background:#d9c7a8}
 .spot-card b{display:block;font:600 clamp(18px,1.7vw,26px)/1.1 var(--serif)}
 .spot-card .s{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:4px 0 9px;font-size:clamp(11px,.9vw,13px);line-height:1.35;color:#5b4660}
-.spot-card button{padding:6px 13px;border-radius:99px;background:#62445a;color:#f7e2b5;font-size:clamp(11px,.9vw,13px)}
+.spot-card .in button{padding:6px 13px;border-radius:99px;background:#62445a;color:#f7e2b5;font-size:clamp(11px,.9vw,13px)}
 .spot-dots{display:flex;justify-content:center;gap:7px;margin-top:11px}
-.spot-dots i{width:7px;height:7px;border-radius:50%;background:#f3e2b855}.spot-dots i.on{background:#f3e2b8}
-@media(min-width:901px){.theatre-about .keepsake-phone,.theatre-about .keepsake-library{display:none}}
-.theatre-about .keepsake-award{display:none}
-@media(max-width:900px){.meet-hero,.spot{display:none}}
+.spot-dots button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 26px;
+  padding: 0;
+  background: transparent;
+}
+.spot-dots button::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border: 1px solid #704b70;
+  border-radius: 50%;
+  background: #704b7040;
+}
+.spot-dots button[aria-pressed="true"]::before { background: #704b70; }
 /* village */
 .project-plaque{inset:auto 6% 18%!important}
 .plaque-sub{position:absolute;inset:auto 4% 3.5%;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;font:italic 500 clamp(12px,1.25vw,17px)/1.2 var(--serif);color:#4d3652;pointer-events:none}
@@ -2639,7 +2589,7 @@ dialog.keepsake-dialog {
 .village-filter button:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--g,linear-gradient(105deg,#f6dc8f,#eba998,#b99be0))}
 .village-filter button[aria-pressed=true]{color:#2a1b3a;border-color:#fff8;background:var(--g,linear-gradient(105deg,#f6dc8f,#eba998 55%,#b99be0));box-shadow:0 4px 16px #0006}
 .village-filter button[aria-pressed=true]:before{background:#2a1b3a}
-.village-filter{position:absolute;z-index:8;left:50%;top:3.5%;translate:-50% 0;display:flex;gap:7px;flex-wrap:wrap;justify-content:center}
+.village-filter{position:absolute;z-index:8;inset:3.5% 3% auto;display:flex;gap:7px;flex-wrap:wrap;justify-content:center}
 .project-stop.is-off{display:none}
 .village-filter [data-all]{--g:linear-gradient(105deg,#f6dc8f,#eba998 55%,#b99be0)}
 
@@ -2704,7 +2654,7 @@ dialog.keepsake-dialog {
 .theatre-un-deaf .project-summary {
   position: absolute;
   z-index: 7;
-  inset: 12% auto auto 3.5%;
+  inset: 11% 3.5% auto auto;
   width: min(27cqw, 218px);
   margin: 0;
   padding: clamp(7px, 1.3cqw, 12px);
@@ -2715,13 +2665,7 @@ dialog.keepsake-dialog {
   box-shadow: 0 4px 12px #180c284a;
   font: 600 clamp(12px, 1.48cqw, 15px)/1.4 var(--sans);
 }
-@media (max-width: 700px) {
-  .theatre-un-deaf .project-summary {
-    inset-block-start: 6%;
-    width: min(46cqw, 190px);
-    font-size: clamp(11px, 2.8cqw, 13px);
-  }
-}
+
 .theatre-un-deaf .plate-caption .paper-actions {
   justify-content: flex-start;
   margin-top: 0;
@@ -3019,10 +2963,10 @@ dialog.letter-dialog{width:min(740px,calc(100% - 20px));max-height:95svh;border:
 .lt-meter{display:flex;align-items:center;gap:6px;margin:10px 0 12px;font:italic 500 15px var(--serif);color:#7a5a82}
 .lt-meter i{width:16px;height:16px;background:#d8c8aa;clip-path:polygon(50% 0,62% 36%,100% 50%,62% 64%,50% 100%,38% 64%,0 50%,38% 36%);transition:background .3s,scale .35s cubic-bezier(.2,1.8,.4,1)}
 .lt-meter i.on{background:linear-gradient(135deg,#ffd978,#f08fa0);scale:1.25}
-.lt-from{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.lt-from{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 @media(max-width:560px){.lt-from{grid-template-columns:1fr}}
-.lt-from label{display:grid;gap:2px;font:600 10.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#8a6a8f}
-.lt-from input{border:0;border-bottom:1.5px solid #bba287;background:transparent;outline:0;padding:2px 0;font:italic 500 21px var(--serif);color:#3b2a40;transition:border-color .2s}
+.lt-from label{display:grid;grid-template-columns:minmax(0,1fr);gap:2px;font:600 10.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#8a6a8f}
+.lt-from input{width:100%;min-width:0;border:0;border-bottom:1.5px solid #bba287;background:transparent;outline:0;padding:2px 0;font:italic 500 21px var(--serif);color:#3b2a40;transition:border-color .2s}
 .lt-from input:focus{border-color:#c0508a}
 .lt-from input.bad,.lt-paper textarea.bad{animation:ltShake .4s}
 .lt-from input.bad{border-color:#d0415f}
@@ -3038,7 +2982,7 @@ dialog.letter-dialog{width:min(740px,calc(100% - 20px));max-height:95svh;border:
   letter-spacing: .01em;
 }
 .lt-actions{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:18px}
-.lt-stamps{flex:1;min-width:260px}
+.lt-stamps{flex:1 1 260px;min-width:0}
 .lt-stamps p{margin:0 0 8px;font:italic 500 16px var(--serif);color:#e6d7f0}
 .lt-chips{display:flex;gap:7px;flex-wrap:wrap}
 .lt-chips button{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:99px;border:1px solid #f3e2b86e;background:#1f1845b0;color:#f3e2b8;font:600 13px var(--sans);cursor:pointer;transition:transform .2s,background .25s}
@@ -3270,7 +3214,7 @@ dialog.letter-dialog{width:min(740px,calc(100% - 20px));max-height:95svh;border:
 .lt-thanks svg{width:84px;height:84px;filter:drop-shadow(0 0 16px #ffcf6a);animation:ltSpin 9s linear infinite}
 @keyframes ltSpin{to{rotate:360deg}}
 .lt-thanks h3{margin:10px 0 4px;font:italic 500 clamp(30px,5vw,44px)/1.1 var(--serif);color:#fff7e2}
-.lt-thanks p{margin:0 auto 18px;max-width:30em;color:#e6d7f0;font-size:15.5px;line-height:1.55}
+.lt-thanks p{overflow-wrap:anywhere;margin:0 auto 18px;max-width:30em;color:#e6d7f0;font-size:15.5px;line-height:1.55}
 .lt-thanks .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 .lt-thanks button{padding:9px 20px;border-radius:99px;border:1px solid #e8c77e99;background:#2d2358;color:#ffe28a;font:600 13.5px var(--sans);cursor:pointer}
 .lt-thanks button.pri{border-color:#fffa;background:linear-gradient(105deg,#ffe28a,#ffb27a);color:#2a1b3a}
@@ -3367,6 +3311,230 @@ dialog.experience-dialog {
 @media (prefers-reduced-motion: reduce) {
   .theatre-workbench .orb-label b { transition: none; translate: none; }
   .whirl-trail { display: none; }
+}
+
+/* Fluid controls and readable illustrated scenes on compact screens. */
+.reader-bar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  padding-block: 4px max(4px, env(safe-area-inset-bottom));
+}
+.reader-bar nav {
+  position: static;
+  transform: none;
+}
+.reader-bar .sound-group { justify-self: start; flex-wrap: wrap; }
+.reader-bar .paging { justify-self: end; }
+.reader-bar .paging button { width: 44px; height: 44px; }
+.reader-bar :is(button, .bookmark-dot):focus-visible { outline-offset: 1px; }
+.plate-title h2 { min-width: 0; overflow-wrap: anywhere; }
+#overlay {
+  max-block-size: calc(100dvh - max(20px, env(safe-area-inset-top) + env(safe-area-inset-bottom)));
+  overscroll-behavior: contain;
+}
+#overlayContent { overflow-wrap: anywhere; }
+.skill-picker { display: none; }
+.skill-picker select {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 5px;
+  padding: 4px 10px;
+  border: 1px solid #e8c77e88;
+  border-radius: 7px;
+  background: #2a2150;
+  color: #fff7e2;
+  font: 500 16px var(--sans);
+}
+.skill-picker select:focus-visible { outline: 2px solid #ffe28a; outline-offset: 2px; }
+
+@media (max-width: 950px) {
+  .reader-bar .folio { display: none; }
+  #replayStar span { display: none; }
+  #replayStar { min-height: 44px; min-width: 30px; font-size: 16px; }
+}
+@media (max-width: 760px) {
+  .skill-picker {
+    display: block;
+    margin: 0 0 12px;
+    color: #f6e4b2;
+    font: 600 13px var(--sans);
+  }
+}
+@media (max-width: 700px) {
+  .reader-bar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 3px 8px;
+    margin-inline: max(12px, env(safe-area-inset-left), env(safe-area-inset-right));
+  }
+  .reader-bar nav,
+  .reader-bar:has(#pauseClouds:not([hidden])) nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    order: 0;
+  }
+  .reader-bar .paging { grid-column: 2; grid-row: 1; }
+  .reader-bar .bookmark-dot { width: min(11%, 40px); height: 34px; }
+  .reader-bar .sound-group { gap: 3px 8px; }
+  .binding .book-object {
+    height: auto;
+    width: min(59vw, 62svh * .652, 340px);
+    max-width: 100%;
+  }
+  .binding .silk-tab { inset-inline-start: min(87%, 100vw - 125px); min-height: 38px; }
+  .plate-title { padding-inline-end: 36px; }
+  .plate-title h2 { font-size: clamp(24px, 5.5vw, 32px); }
+  .paper-action, .paper-actions .ink-link {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    font-size: 13px;
+  }
+  .theatre-projects .illustration { min-height: clamp(240px, 65cqw, 310px); }
+  .theatre-projects .project-lane { inset-block-start: 48px; }
+  .theatre-projects .project-building { --y: 0%; --h: 59%; }
+  .theatre-projects .project-stop { flex-basis: clamp(126px, 48%, 224px); }
+  .theatre-projects .project-plaque { inset-block-end: 22% !important; font-size: clamp(14px, 3.8cqw, 18px); }
+  .theatre-projects .plaque-sub { gap: 3px; font-size: 12px; }
+  .village-filter { gap: 4px; }
+  .village-filter button { min-height: 36px; padding: 5px 8px; font-size: 11px; gap: 4px; }
+  .village-filter button::before { width: 7px; height: 7px; }
+  .theatre-un-deaf .illustration { min-height: 185px; }
+  #overlay .close {
+    position: sticky;
+    top: 6px;
+    right: auto;
+    float: inline-end;
+    width: 40px;
+    height: 40px;
+    margin-inline-start: 8px;
+  }
+  .letter-dialog .dialog-body { overflow: clip; }
+  .lt-actions { align-items: center; }
+  .lt-sealbtn .lt-wax { width: clamp(58px, 17vw, 80px); }
+  .lt-slot { width: 50px; height: 50px; right: 11px; }
+  .lt-stamp b { font-size: 19px; }
+  .lt-paper h2 { padding-inline-end: 45px; }
+}
+@media (max-width: 370px) {
+  .theatre-projects .project-lane { inset-block-start: 78px; }
+  .theatre-projects .illustration { min-height: 282px; }
+  .theatre-projects .project-stop { flex-basis: 61%; }
+  .village-filter button { flex: 0 0 45%; justify-content: center; }
+  .theatre-milestones .scene-pin { max-width: 44%; }
+  .keepsake-pocket { justify-content: center; }
+  .keepsake-list-button { margin-inline-start: 0; }
+}
+@media (max-height: 540px) and (orientation: landscape) {
+  .cover-stage { min-height: calc(100svh - 72px); padding-block: 18px 26px; }
+  .binding .book-object { height: min(66svh, 330px); }
+  .reader { padding-bottom: 14px; }
+  .light-image { max-height: 55dvh; }
+}
+
+/* Give the portrait and its project highlight room to breathe on phones. */
+.theatre-about .paper-world, .theatre-un-deaf .paper-world { container-type: inline-size; }
+
+@media (max-width: 900px) {
+  .theatre-about .illustration { aspect-ratio: 1.5; }
+  .theatre-about .meet-hero { inset: 24% auto auto 6%; width: 43%; }
+  .theatre-about .meet-title { font-size: clamp(38px, 15cqw, 89px); }
+  .theatre-about .mirror-piece { --x:49%; --y:4%; --w:45%; --h:90%; }
+  .theatre-about .spot {
+    position: relative;
+    inset: auto;
+    width: auto;
+    padding: 13px 4% 16px;
+    border-top: 1px solid #e6bf83;
+    background: radial-gradient(ellipse at top, #553b60, #292039 72%);
+  }
+  .theatre-about .spot-tag {
+    margin: 0 0 9px;
+    padding: 0;
+    background: transparent;
+    color: #fbe1ab;
+    font-size: 20px;
+  }
+  .theatre-about .spot-card {
+    padding: 10px 12px 9px;
+    border: 1px solid #ddb683;
+    background: linear-gradient(135deg, #fff7e7, #f1e0c4);
+    rotate: none;
+    animation: rise .65s backwards;
+  }
+  .theatre-about .spot-card::before { display: none; }
+  .theatre-about .spot-card .in {
+    display: grid;
+    grid-template-columns: clamp(66px, 22cqw, 132px) minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    column-gap: 12px;
+  }
+  .theatre-about .spot-card img { grid-row: 1 / 4; margin: 0; aspect-ratio: 1; }
+  .theatre-about .spot-card b { font-size: clamp(22px, 5cqw, 29px); }
+  .theatre-about .spot-card .s { display: block; margin: 3px 0 6px; font-size: 15px; }
+  .theatre-about .spot-card .in button { justify-self: start; min-height: 40px; font-size: 14px; }
+  .theatre-about .spot-dots { margin-top: 8px; }
+  .theatre-about .spot-dots button { width: 44px; height: 32px; }
+}
+
+@media (max-width: 800px) {
+  .theatre-un-deaf .project-summary {
+    position: static;
+    width: auto;
+    margin: 0;
+    padding: 10px 4%;
+    border: 0;
+    border-block: 1px solid #c7a77a;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 700px) {
+  .plate-caption p { font: 500 15px/1.4 var(--sans); }
+  .paper-action, .paper-actions .ink-link { min-height: 44px; font-size: 14px; }
+  .theatre-projects .illustration { min-height: clamp(265px, 66cqw, 360px); }
+  .theatre-projects .project-door {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto auto;
+    align-content: end;
+    gap: 5px;
+    padding: 0 6px 8px;
+  }
+  .theatre-projects .project-building { position: relative; inset: auto; width: 100%; height: 100%; }
+  .theatre-projects .project-plaque { position: static; margin: 0 auto; font-size: 16px; }
+  .theatre-projects .plaque-sub { position: static; font: 500 13px/1.3 var(--sans); }
+  .village-filter button { font-size: 12px; }
+  .theatre-un-deaf .alarm-cta { min-height: 40px; max-width: 95%; font-size: 13px; }
+  .theatre-un-deaf .sim-tip {
+    inset: 4% auto auto 50% !important;
+    max-width: 95%;
+    padding: 4px 10px;
+    font-size: 13px;
+    text-align: center;
+  }
+  .theatre-un-deaf .sim-tip::after { display: none; }
+  .theatre-milestones .scene-pin { min-height: 40px; max-width: 45%; font-size: 15px; }
+  .theatre-workbench .orb-label b { font-size: clamp(14px, 3.9cqw, 19px); }
+  .theatre-workbench .orb { width: clamp(112px, 34cqw, 165px); }
+  .theatre-workbench .orb.skills { left: 22%; }
+  .theatre-workbench .orb.exp { left: 78%; }
+  .keepsake-entry .keepsake-detail, .keepsake-context, .keepsake-index small,
+  .collection-links .ink-link, .collection-back { font-size: 14px; }
+  .collection-links .ink-link, .collection-back { min-height: 40px; }
+  .dialog-body p, .sk-detail p { font-size: 15px; line-height: 1.5; }
+  .lt-chips button { min-height: 36px; font-size: 14px; }
+}
+@media (max-width: 430px) {
+  .village-filter button { flex: 0 0 45%; justify-content: center; }
+  .theatre-projects .project-lane { inset-block-start: 85px; }
+  .theatre-projects .illustration { min-height: 297px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .meet-title .c, .spot-tag, .spot-card, .spot-card .in { animation: none; }
 }
 
     </style>
@@ -3885,18 +4053,6 @@ function scenePin(attribute, label, x, y, number) {
   return pinButton(attribute, label, number, 'style="--x:' + x + '%;--y:' + y + '%" ');
 }
 function projectTarget(p){return p.chapter?'data-route="'+escapeText(p.chapter)+'"':'data-case="'+escapeText(p.id)+'"';}
-function portraitKeepsakes() {
-  const keepsakes = [
-    { style: 'phone', action: 'data-route="un-deaf"', image: 'model-phone', label: 'Un-Deaf', description: 'Explore the Un-Deaf alarm and app' },
-    { style: 'library', action: 'data-case="library"', image: 'star-house', label: 'Library system', description: 'Read about my library management system' },
-    { style: 'award', action: 'data-library="achievements" data-award="young-innovators"', image: 'medal', label: 'Gold medal', description: 'View my Young Innovators Challenge gold medal and other achievements' }
-  ];
-  return keepsakes.map(({ style, action, image, label, description }) =>
-    '<button type="button" class="keepsake keepsake-' + style + '" ' + action +
-    ' aria-label="' + escapeText(label + '. ' + description) + '"><span class="keepsake-paper">' +
-    art(image) + '</span><span class="keepsake-label">' + escapeText(label) + '</span></button>'
-  ).join('');
-}
 // Each hinge has its own footprint on the page. It can fold, cast a shadow,
 // and move in depth independently of the layers in front and behind it.
 const hinge = (name, body) =>
@@ -3943,14 +4099,12 @@ function chapterMarkup(i){
   const key=paths[i];
   let objects='', actions='';
   if(i===1){
-    objects=portraitKeepsakes();
     actions=control('data-bio','Meet Joan')+'<a class="paper-action" href="data:application/pdf;base64,JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YxIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKMyAwIG9iago8PAovQmFzZUZvbnQgL1RpbWVzLVJvbWFuIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMiAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EtQm9sZCAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjMgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago1IDAgb2JqCjw8Ci9BIDw8Ci9TIC9VUkkgL1R5cGUgL0FjdGlvbiAvVVJJIChodHRwczovL2pvYW5uZ2FuLnh5ei8pCj4+IC9Cb3JkZXIgWyAwIDAgMCBdIC9SZWN0IFsgMTgxIDcwNiAyNjIgNzI0IF0gL1N1YnR5cGUgL0xpbmsgL1R5cGUgL0Fubm90Cj4+CmVuZG9iago2IDAgb2JqCjw8Ci9BIDw8Ci9TIC9VUkkgL1R5cGUgL0FjdGlvbiAvVVJJIChodHRwczovL3d3dy5saW5rZWRpbi5jb20vaW4vam9hbnlvdS8pCj4+IC9Cb3JkZXIgWyAwIDAgMCBdIC9SZWN0IFsgMjY4IDcwNiA0MzIgNzI0IF0gL1N1YnR5cGUgL0xpbmsgL1R5cGUgL0Fubm90Cj4+CmVuZG9iago3IDAgb2JqCjw8Ci9BIDw8Ci9TIC9VUkkgL1R5cGUgL0FjdGlvbiAvVVJJIChtYWlsdG86bmdhbmpvYW55b3VAZ21haWwuY29tKQo+PiAvQm9yZGVyIFsgMCAwIDAgXSAvUmVjdCBbIDQ0IDcwNiAxNzcgNzI0IF0gL1N1YnR5cGUgL0xpbmsgL1R5cGUgL0Fubm90Cj4+CmVuZG9iago4IDAgb2JqCjw8Ci9Bbm5vdHMgWyA1IDAgUiA2IDAgUiA3IDAgUiBdIC9Db250ZW50cyAxMiAwIFIgL01lZGlhQm94IFsgMCAwIDU5NSA4NDIgXSAvUGFyZW50IDExIDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAKICAvVHJhbnMgPDwKCj4+IC9UeXBlIC9QYWdlCj4+CmVuZG9iago5IDAgb2JqCjw8Ci9QYWdlTW9kZSAvVXNlTm9uZSAvUGFnZXMgMTEgMCBSIC9UeXBlIC9DYXRhbG9nCj4+CmVuZG9iagoxMCAwIG9iago8PAovQXV0aG9yIChhbm9ueW1vdXMpIC9DcmVhdGlvbkRhdGUgKEQ6MjAyNjExMjQxMzAwNTIrMDgnMDAnKSAvQ3JlYXRvciAoYW5vbnltb3VzKSAvS2V5d29yZHMgKCkgL01vZERhdGUgKEQ6MjAyNjExMjQxMzAwNTIrMDgnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIFwob3BlbnNvdXJjZVwpKSAKICAvU3ViamVjdCAodW5zcGVjaWZpZWQpIC9UaXRsZSAoTmdhbiBKb2FuIFlvdSB8IFBvcnRmb2xpbyBDVikgL1RyYXBwZWQgL0ZhbHNlCj4+CmVuZG9iagoxMSAwIG9iago8PAovQ291bnQgMSAvS2lkcyBbIDggMCBSIF0gL1R5cGUgL1BhZ2VzCj4+CmVuZG9iagoxMiAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCA5MzEKPj4Kc3RyZWFtCkdhdG4kaC9BYzonWkp1LD0uST01OG5uKS5ha09ELlNiQ0dcPi1ncU1GTUlvOWBeW0UkUT4oakhYcHJmQ2U+ZUNaK3FZcUVeTjdgM147Uk9TOkU1QyskYlk/U3ImUjw7QCdgNGo3MlwhKkVPQGZgUUxnI0RPV2RtVEgrJCxKYTs5YVtLO2hYR0dXJnBrPUNfXkhhNnJSRjhuKHU9NVNWTlxvOnVAbGtCLGpRIz0qbUpuOjlqOUpGOklRUTdQQlhjYHEzU2lqTkcrbWtsLSJsMkR0ZXBYa3U/M1I3W0hXU2chKzNZLWJLMksjRmhjcmJcc0lLO0IkWkVlI11ZcT8pLkgoPHJGLSdHISNtXHVBJW1VK0tyJy9EJHApPUVwXnBcalIuTzJLPDZRNSIpWy8idW1ARi5wbiI4J2Q1LVE2OGM0WWJbKjtPJVBtP1AkWmlfUWI3RlE2PixwUlNfNTUxLkgxPmFvOzxgJCZFUlBJcDRmbW9hQyFESlc8dVUtYS09cFhYUXRtJjQ6XUZoSEpKKD1SME1edXJHdSteQ1cwPVA/T0ZdcyM1VkZMSDdNcmg8bkU8PU1COV5lMExxIUVDaj1dU10nJ1RxVSQ1Y1kkJFZiOUE1TkpsU25oUURrSEoyb0QoS01cRmp1X1VcMEksZ1JZTGlYKFYhcFJQYmVpQEM8K186LShIa206LEhPLEdyZ1ZmQF5abSheYEtUO21BKVlZQG9iIUojKTIqRTQqNzFVWFxfM1VQLWt1LkckNnQuO11sSmBGKTkjTiYlTix1ZHNDLDdRP0guNlo9O0okKyt1LWBZLTkrUyx0dXFbLj1LOkNgVFkzRjhTcU5lVzJYQzlYUSQxKSsiWFI7WUgjc0BMYS0vNmJQI0o1RFtULi1AYVU/P3JoM2kxbis0LT0sajk5Oz4tNjliXidVPHFBLT5JWjFuaEYiN2lEPG08KGAnYlFxRF1LViZmMChjP1M5TEIyKU42UkxaM3UmJEY7cEw5PE89OykwIl9tQD8ybGoyWFFiLFVeY0RvV0Q3c0NSZWhQTj4iQj4sUFsuInBpLHFoV2crRTNAO1UrJz1BKF9gOz9iI05scnUlbGghZzNDUj1FPVZhbVlKQiYnWGlIWnRidShYUXJHXjRpckdQRVtSWiRWcCJQUTwmPDxhYzZpIV1dJkkoYlRsNkM4OkFER2JkYzJNQmdiaTNfXTpUJVZyaFIkV006K1QoYGxXLTIlOjQjfj5lbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCAxMwowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAwNjEgMDAwMDAgbiAKMDAwMDAwMDExMiAwMDAwMCBuIAowMDAwMDAwMjE5IDAwMDAwIG4gCjAwMDAwMDAzMjggMDAwMDAgbiAKMDAwMDAwMDQ0MCAwMDAwMCBuIAowMDAwMDAwNTkzIDAwMDAwIG4gCjAwMDAwMDA3NjEgMDAwMDAgbiAKMDAwMDAwMDkyMCAwMDAwMCBuIAowMDAwMDAxMTQ1IDAwMDAwIG4gCjAwMDAwMDEyMTQgMDAwMDAgbiAKMDAwMDAwMTQ5NiAwMDAwMCBuIAowMDAwMDAxNTU2IDAwMDAwIG4gCnRyYWlsZXIKPDwKL0lEIApbPGQ0ZDcxM2RjYmY0YzE0YzUyYjZkOTM0ZjQwY2IwYjIyPjxkNGQ3MTNkY2JmNGMxNGM1MmI2ZDkzNGY0MGNiMGIyMj5dCiUgUmVwb3J0TGFiIGdlbmVyYXRlZCBQREYgZG9jdW1lbnQgLS0gZGlnZXN0IChvcGVuc291cmNlKQoKL0luZm8gMTAgMCBSCi9Sb290IDkgMCBSCi9TaXplIDEzCj4+CnN0YXJ0eHJlZgoyNTc4CiUlRU9GCg==" download="Joan-Ngan-CV.pdf">Download CV ↓</a>'+control('data-contents','Contents');
   }else if(i===2){
     objects=projectVillage();
     actions=control('data-library="projects"','Project index · '+portfolioEntries.projects.length);
   }else if(i===3){
-    objects='<p class="project-summary">A fire alarm for deaf and hard-of-hearing people. Flashing lights and vibration warn of danger, and the app shows live sensor readings.</p>'+
-      '<span class="window-beam" aria-hidden="true"></span><span class="signal-note">≋ &nbsp; Vibration</span><span class="sensor-note">Sensor view</span>';
+    objects='<span class="window-beam" aria-hidden="true"></span><span class="signal-note">≋ &nbsp; Vibration</span><span class="sensor-note">Sensor view</span>';
     actions='<button class="pull-tab" data-alert aria-pressed="'+alarm+'">'+(alarm?'Reset the alert':'Pull to try the alert')+'</button>'+caseButton('prototype','Prototype')+caseButton('app','App screens')+caseButton('un-deaf','Project details');
   }else if(i===4){
     actions=control('data-workbench="skills"','Technical skills')+control('data-workbench="experience"','Work experience');
@@ -3964,8 +4118,11 @@ function chapterMarkup(i){
     actions=control('data-letter','Write a letter')+'<a class="paper-action" href="mailto:nganjoanyou@gmail.com">Email Joan</a><a class="paper-action" href="https://www.linkedin.com/in/joanyou/" target="_blank" rel="noopener">LinkedIn ↗</a>';
   }
   const [x,y]=perches[i];
+  const summary = i === 3
+    ? '<p class="project-summary">A fire alarm for deaf and hard-of-hearing people. Flashing lights and vibration warn of danger, and the app shows live sensor readings.</p>'
+    : '';
   const caption = i === 3 ? '' : '<p>' + notes[i] + '</p>';
-  return '<article class="theatre theatre-'+key+(i===3&&alarm?' alerted':'')+'"><header class="plate-title"><span>Chapter '+numbers[i]+'</span><h2 id="chapterTitle" tabindex="-1">'+folioTitles[i]+'</h2></header><div class="paper-world"><div class="illustration">'+paperScene(i)+objects+'<i class="perch" aria-hidden="true" style="left:'+x+'%;top:'+y+'%"></i></div></div><footer class="plate-caption">'+caption+'<div class="paper-actions">'+actions+'</div></footer></article>';
+  return '<article class="theatre theatre-'+key+(i===3&&alarm?' alerted':'')+'"><header class="plate-title"><span>Chapter '+numbers[i]+'</span><h2 id="chapterTitle" tabindex="-1">'+folioTitles[i]+'</h2></header><div class="paper-world"><div class="illustration">'+paperScene(i)+objects+'<i class="perch" aria-hidden="true" style="left:'+x+'%;top:'+y+'%"></i></div>'+summary+'</div><footer class="plate-caption">'+caption+'<div class="paper-actions">'+actions+'</div></footer></article>';
 }
 function projectVillage() {
   const projects = portfolioEntries.projects.map((project, index) =>
@@ -5142,16 +5299,37 @@ const sparkle=(host,x,y,z)=>{const e=document.createElement('i');e.className='sp
 function buildPortrait(il){
   const words=['Meet','Joan'];let n=0;
   const title=words.map(w=>'<span class="w">'+[...w].map(ch=>'<span class="c" style="--d:'+(0.75+0.07*n++)+'s">'+ch+'</span>').join('')+'</span>').join('');
-  il.insertAdjacentHTML('beforeend','<div class="meet-hero"><button type="button" class="meet-title" data-bio aria-label="Meet Joan: read my story">'+title+'</button></div><aside class="spot" aria-label="Project highlight"><span class="spot-tag">Project highlight</span><div class="spot-card"><div class="in"></div><div class="spot-dots"></div></div></aside>');
-  const hero=q('.meet-hero',il),spot=q('.spot-card',il);
-  const picks=['un-deaf','cashier','library'].map(id=>portfolioEntries.projects.find(p=>p.id===id)).filter(Boolean);
-  let k=0;const show=()=>{const p=picks[k%picks.length];
-    q('.in',spot).innerHTML='<img alt="" src="'+asset(p.image||p.building)+'"><b>'+escapeText(p.pinLabel||p.title)+'</b><span class="s">'+escapeText(p.subtitle)+'</span><button type="button" '+projectTarget(p)+'>Open project ↗</button>';
-    q('.spot-dots',spot).innerHTML=picks.map((_,i)=>'<i class="'+(i===k%picks.length?'on':'')+'"></i>').join('');};
-  show();
-  const rot=setInterval(()=>{if(!spot.isConnected)return clearInterval(rot);if(!overlay.open){k++;const c=q('.in',spot);c.style.animation='none';c.offsetWidth;c.style.animation='';show()}},5500);
+  il.insertAdjacentHTML('beforeend','<div class="meet-hero"><button type="button" class="meet-title" data-bio aria-label="Meet Joan: read my story">'+title+'</button></div>');
+  il.insertAdjacentHTML('afterend','<aside class="spot" aria-label="Project highlight"><span class="spot-tag">Project highlight</span><div class="spot-card"><div class="in"></div><div class="spot-dots"></div></div></aside>');
+  const hero=q('.meet-hero',il),spot=q('.spot-card',il.parentElement);
+  const picks = ['un-deaf', 'cashier', 'library'].map(id => portfolioEntries.projects.find(project => project.id === id)).filter(Boolean);
+  const card = q('.in', spot);
+  const dots = q('.spot-dots', spot);
+  dots.innerHTML = picks.map(project => '<button type="button" aria-label="Highlight ' +
+    escapeText(project.title) + '"></button>').join('');
+  const choices = qa('button', dots);
+  let selected = 0;
+  function show(index) {
+    selected = index;
+    const project = picks[index];
+    card.innerHTML = '<img alt="" src="' + asset(project.image || project.building) + '"><b>' +
+      escapeText(project.pinLabel || project.title) + '</b><span class="s">' + escapeText(project.subtitle) +
+      '</span><button type="button" ' + projectTarget(project) + '>Open project ↗</button>';
+    choices.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
+  }
+  choices.forEach((button, index) => button.addEventListener('click', () => show(index)));
+  show(0);
+  if (!RM.matches) {
+    const rotate = setInterval(() => {
+      if (!spot.isConnected) {
+        clearInterval(rotate);
+        return;
+      }
+      if (!overlay.open && !spot.contains(document.activeElement) && !spot.matches(':hover')) show((selected + 1) % picks.length);
+    }, 5500);
+  }
   if(RM.matches)return;
-  const tick=setInterval(()=>{if(!hero.isConnected)return clearInterval(tick);const r=hero.getBoundingClientRect(),h=q('.meet-title',hero).getBoundingClientRect();
+  const tick=setInterval(()=>{if(!hero.isConnected)return clearInterval(tick);const h=q('.meet-title',hero).getBoundingClientRect();
     sparkle(hero,Math.random()*h.width,Math.random()*h.height*1.05-10)},230);
   q('.meet-title',hero).addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();if(Math.random()<.4)sparkle(hero,e.clientX-r.left+(Math.random()*20-10),e.clientY-r.top+(Math.random()*20-10),10+Math.random()*10)});
 }
@@ -5243,29 +5421,42 @@ function drawWhirlTrail(trail, cx, cy, radius, verticalRadius, angle, time, opac
 }
 function stopWhirl(instant){if(!W)return;const w=W;if(instant||RM.matches){w.root.remove();W=null;return}w.leaving=performance.now()}
 function startWhirl(){
-  stopWhirl(true);const il=q('.illustration');const book=q('.album-leaves',il)||il;
+  const il = q('.theatre-gallery .illustration');
+  if (!il) return;
+  stopWhirl(true);
+  const book = q('.album-leaves', il) || il;
   const root=document.createElement('div');root.id='whirl';document.body.appendChild(root);
-  const cw=Math.max(110,Math.min(200,innerWidth*.13));
   const cards=gallery.map((cap,i)=>{const b=document.createElement('button');b.type='button';b.className='wcard';b.setAttribute('aria-label','Open photograph: '+cap);
-    b.style.width=cw+'px';b.style.height=cw*1.18+'px';b.innerHTML='<img alt="" src="'+asset('gallery-'+(i+1))+'">';
+    b.innerHTML='<img alt="" src="'+asset('gallery-'+(i+1))+'">';
     b.addEventListener('click',()=>openPhoto(i));root.appendChild(b);const c={el:b,a:i*Math.PI*2/gallery.length,i,h:0,hot:false};
       b.style.setProperty('--halo',['#ffd36b','#f7a9bd','#cdb4f7','#9fd0ff'][i%4]);b.style.setProperty('--n',i);
       const on=()=>c.hot=true,off=()=>{c.hot=false;b.style.setProperty('--rx','0deg');b.style.setProperty('--ry','0deg')};
       b.addEventListener('pointerenter',on);b.addEventListener('pointerleave',off);b.addEventListener('focus',on);b.addEventListener('blur',off);
       b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.setProperty('--ry',((e.clientX-r.left)/r.width-.5)*22+'deg');b.style.setProperty('--rx',(.5-(e.clientY-r.top)/r.height)*22+'deg')});
       return c});
-  W={root,cards,t0:performance.now(),leaving:0,cw,spin:0,speed:1,prev:performance.now(),dust:0,trail:RM.matches?null:makeWhirlTrail(root)};
-  const frame=now=>{if(!W||W.root!==root)return;const r=book.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
+  W={root,cards,t0:performance.now(),leaving:0,cardWidth:0,spin:0,speed:1,prev:performance.now(),dust:0,trail:RM.matches?null:makeWhirlTrail(root)};
+  const frame=now=>{if(!W||W.root!==root)return;
+    const compact = narrow.matches || innerHeight <= 560;
+    const r = (compact ? il : book).getBoundingClientRect();
+    const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    const cw = Math.round(compact
+      ? Math.min(200, r.width * .27, r.height * .44)
+      : Math.max(110, Math.min(200, innerWidth * .13)));
+    if (W.cardWidth !== cw) {
+      W.cardWidth = cw;
+      cards.forEach(({ el }) => { el.style.width = cw + 'px'; el.style.height = cw * 1.18 + 'px'; });
+    }
     let t=(now-W.t0)/1000,sink=1;if(W.leaving){sink=1-Math.min(1,(now-W.leaving)/650);if(sink<=0){root.remove();W=null;return}}
     const dt=Math.min(.05,Math.max(0,(now-W.prev)/1000));W.prev=now;
     W.speed+=((cards.some(c=>c.hot)?0:1)-W.speed)*Math.min(1,dt*6);W.spin+=dt*W.speed;
     const trail=!RM.matches&&!overlay.open&&!W.leaving&&now-W.dust>70;if(trail)W.dust=now;
     const u=RM.matches?1:Math.min(1,t/1.7),e=1-Math.pow(1-u,3);
-    const R=Math.min(innerWidth*.38,560)*e*sink,Ry=Math.min(innerHeight*.30,260)*e*sink;
+    const R = (compact ? Math.max(0, (r.width - cw * 1.42) / 2) : Math.min(innerWidth * .38, 560)) * e * sink;
+    const Ry = (compact ? Math.max(0, (r.height - cw * 1.55 - 16) / 2) : Math.min(innerHeight * .30, 260)) * e * sink;
     const phase=RM.matches?0:.32*W.spin+4.6*(1-Math.exp(-t/.9));
     if(W.trail)drawWhirlTrail(W.trail,cx,cy,R,Ry,phase+t*.78,t,RM.matches||overlay.open?0:e*sink);
     cards.forEach(c=>{const th=c.a+phase,d=Math.sin(th),sc=(.2+.8*e)*(.62+.38*(.5+.5*d))*(.85+.15*sink);
-      const x=cx+Math.cos(th)*R-c.el.offsetWidth/2,y=cy+Math.sin(th)*Ry-c.el.offsetHeight/2+(RM.matches?0:Math.sin(t*1.2+c.i)*8)-(1-e)*60;
+      const x=cx+Math.cos(th)*R-c.el.offsetWidth/2,y=cy+Math.sin(th)*Ry-c.el.offsetHeight/2+(RM.matches?0:Math.sin(t*1.2+c.i)*8)-(1-e)*(compact ? 18 : 60);
       c.h+=((c.hot?1:0)-c.h)*Math.min(1,dt*10);
       c.el.style.zIndex=c.hot?300:Math.round(100+d*60);
       c.el.classList.toggle('far',d<-.35&&!c.hot);
@@ -5273,7 +5464,7 @@ function startWhirl(){
       c.el.style.transform=`translate(${x}px,${y}px) rotate(${(1-e)*(c.i%2?720:-720)+Math.cos(th)*9}deg) scale(${sc+(1.18-sc)*c.h}) perspective(600px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))`});
     requestAnimationFrame(frame)};
   requestAnimationFrame(frame);
-  qa('.mounted-print',il).forEach(p=>p.style.opacity=0);
+  qa('.mounted-print',il).forEach(print => { print.hidden = true; });
   const cap=q('.plate-caption p');if(cap)cap.textContent='Photos from my camera roll. Click one to open it.';
   const act=q('.paper-actions');if(act&&!q('[data-whirl]',act)){act.insertAdjacentHTML('afterbegin','<button class="paper-action" data-whirl type="button">Whirl again</button>');q('[data-whirl]',act).onclick=startWhirl}
 }
@@ -5353,7 +5544,7 @@ function buildCabinet(il){
 let seen=null;
 const run=()=>{const sp=q('#spread');if(!sp)return;
   const il=q('.illustration',sp);if(!il){stopWhirl();return}
-  if(q('.theatre-about',sp)&&!q('.meet-hero',il)&&!narrow.matches)buildPortrait(il);
+  if(q('.theatre-about',sp)&&!q('.meet-hero',il))buildPortrait(il);
   if(q('.theatre-milestones',sp)&&!q('.cab-light',il))buildCabinet(il);
   if(q('.project-lane',il)&&!q('.village-filter',il))buildVillage(il);
   if(q('.theatre-un-deaf',sp)&&!q('.alarm-cta',il))buildAlarm(il);
@@ -5409,20 +5600,25 @@ function buildMap(root){
 
 function openSkills(){
   const cats=portfolioEntries.technicalSkills;
+  const options = cats.map(category => '<optgroup label="' + escapeText(category.title) + '">' +
+    category.tools.map(tool => '<option>' + escapeText(tool) + '</option>').join('') + '</optgroup>').join('');
   const tabs='<button type="button" aria-pressed="true" data-tab="-1">All</button>'+cats.map((c,i)=>'<button type="button" aria-pressed="false" data-tab="'+i+'" style="--c:'+COL[i%COL.length]+'">'+(SHORT[c.title]||c.title)+'</button>').join('');
   openContent('<div class="kicker">From the workbench</div><h2 id="dialogTitle">Technical skills</h2><p class="sk-hint">Every star is something I have built with. Tap one to see where I used it.</p><div class="sk-tabs" role="group" aria-label="Skill groups">'+tabs+'</div>'+
+    '<label class="skill-picker">Choose a skill<select id="skillChoice">' + options + '</select></label>' +
     '<div class="sk-wrap"><div class="sk-stage"><div class="sk-bg"></div><span class="sk-shoot"></span><span class="sk-shoot b"></span><svg class="sk-map" viewBox="0 0 900 500" role="group" aria-label="Skill constellations"></svg></div><div class="sk-detail" aria-live="polite"></div></div>','skill-dialog');
   const stage=q('.sk-stage'),svg=q('.sk-map'),detail=q('.sk-detail'),bg=q('.sk-bg'),tabEls=qa('.sk-tabs button');
   for(let i=0;i<70;i++){const s=document.createElement('i'),z=Math.random()*2+.8;s.style.cssText='left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;width:'+z+'px;height:'+z+'px;opacity:'+(.3+Math.random()*.6)+';animation-delay:'+Math.random()*3+'s';bg.appendChild(s)}
-  const boxes=buildMap(svg);let cur=BASE.slice(),raf=0,tabNow=-1;
+  const picker = q('#skillChoice');
+  const boxes=buildMap(svg);let cur=BASE.slice(),raf=0;
   const zoom=to=>{cancelAnimationFrame(raf);const from=cur.slice(),t0=performance.now(),dur=RM.matches?0:750;
     const step=n=>{const k=dur?Math.min(1,(n-t0)/dur):1,e=k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;cur=from.map((v,i)=>v+(to[i]-v)*e);svg.setAttribute('viewBox',cur.map(v=>v.toFixed(1)).join(' '));if(k<1)raf=requestAnimationFrame(step)};raf=requestAnimationFrame(step)};
-  const setTab=i=>{tabNow=i;tabEls.forEach(b=>b.setAttribute('aria-pressed',+b.dataset.tab===i));
+  const setTab=i=>{tabEls.forEach(b=>b.setAttribute('aria-pressed',+b.dataset.tab===i));
     qa('.sk-cluster',svg).forEach(c=>c.classList.toggle('dim',i>=0&&+c.dataset.ci!==i));zoom(i<0?BASE:boxes[i])};
   const burst=(x,y,col)=>{if(RM.matches)return;for(let k=0;k<10;k++){const c=document.createElementNS(NS,'circle'),a=Math.PI*2*k/10+Math.random()*.5,r=24+Math.random()*26;
     c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',2+Math.random()*2);c.setAttribute('fill',k%2?'#fff3b8':col);svg.appendChild(c);
     c.animate([{transform:'translate(0,0)',opacity:1},{transform:'translate('+Math.cos(a)*r+'px,'+Math.sin(a)*r+'px)',opacity:0}],{duration:700,easing:'ease-out'}).onfinish=()=>c.remove()}};
   const select=node=>{if(!node)return;const t=node.dataset.t,ci=+node.dataset.ci,col=COL[ci%COL.length],cl=node.closest('.sk-cluster');
+    picker.value = t;
     qa('.sk-node.on',svg).forEach(n=>n.classList.remove('on'));qa('.sk-cluster.sel',svg).forEach(n=>n.classList.remove('sel'));node.classList.add('on');cl.classList.add('sel');
     const u=uses(t),m=node.getAttribute('transform').match(/translate\(([\d.]+) ([\d.]+)\)/);burst(+m[1],+m[2],col);
     detail.style.setProperty('--c',col);detail.style.animation='none';detail.offsetWidth;detail.style.animation='';
@@ -5430,6 +5626,13 @@ function openSkills(){
   svg.addEventListener('click',e=>select(e.target.closest('.sk-node')));
   svg.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){const n=e.target.closest('.sk-node');if(n){e.preventDefault();select(n)}}});
   tabEls.forEach(b=>b.onclick=()=>setTab(+b.dataset.tab));
+  picker.addEventListener('change', () => {
+    const node = qa('.sk-node', svg).find(item => item.dataset.t === picker.value);
+    if (node) {
+      setTab(Number(node.dataset.ci));
+      select(node);
+    }
+  });
   stage.addEventListener('pointermove',e=>{const r=stage.getBoundingClientRect();stage.style.setProperty('--px',((e.clientX-r.left)/r.width-.5)*2);stage.style.setProperty('--py',((e.clientY-r.top)/r.height-.5)*2)});
   bg.parentNode.addEventListener('pointermove',e=>{const r=stage.getBoundingClientRect();bg.style.setProperty('--px',((e.clientX-r.left)/r.width-.5)*2);bg.style.setProperty('--py',((e.clientY-r.top)/r.height-.5)*2)});
   const first=q('.sk-node[data-t="Python"]',svg)||q('.sk-node',svg);select(first);
